@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labelling Client</title>
+</head>
+<body oncontextmenu="return false;">
+<img id="data" style="position: absolute;left: 0;top: 0;">
+</body>
+<script>
+const img = document.getElementById("data");
+img.src = "http://localhost/next";
+
+const keys = {
+    "a":"none",
+    "s":"ct_body",
+    "d":"t_body",
+    "q":"ct_head",
+    "w":"t_head"
+};
+
+document.addEventListener("keypress", e => {
+    if(!keys[e.key]) return;
+    img.src = "http://localhost/label?team="+keys[e.key]+"&random="+Math.random();
+});
+
+</script>
+</html>
